@@ -7,9 +7,6 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
-***/
 const quotes = [   //created a variable named quotes with an array of objects containing quotes, source, citation and year
   {
     quote:"For me, I'm a dancer first. I could be the President of the United States, and I will always be a dancer, first and foremost.", 
@@ -50,12 +47,6 @@ const quotes = [   //created a variable named quotes with an array of objects co
   }
 ];
 
-
-
-/***
- * `getRandomQuote` function
-***/
-
 function getRandomQuote(arr) {  //a function called getRandomQuote that stores and return the quotes in the array in random order 
   const randomNumber = Math.floor( Math.random() * quotes.length )  ;
   for ( let i = 0; i< arr.length; i++){
@@ -64,9 +55,6 @@ function getRandomQuote(arr) {  //a function called getRandomQuote that stores a
   }
 }
 
-/***
- * `printQuote` function
-***/
 const randomValue = () => Math.floor(Math.random() * 256);  // arrow function that will be used in randomColor function to generator random colors in rgb
 function randomColor() { 
   const color= `rgb( ${randomValue()}, ${randomValue()}, ${randomValue()} )`; //sets variable called color to hold value for range of random colors in rgb
@@ -90,13 +78,10 @@ function printQuote(){ // function to print the quotes on the web page
   }
   if ( randomQuotes.tags !== undefined) {
     html += `<span class= "tags">` + randomQuotes.tags + `</span>`
-  }
+  } 
   document.getElementById('quote-box').innerHTML = html; // pulls format from index.html page and prints the quotes on the web page.
 }
 setInterval(printQuote, 5000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
-document.getElementById('load-quote').addEventListener("click", printQuote, false); // provides a listening event to click through the quotes to showcase the next random quote on the page. 
-document.getElementById('load-quote').addEventListener("click", printColor, false)
+
+document.getElementById('load-quote').addEventListener("click", printQuote, false); // click event listener for the printing through quotes. 
+document.getElementById('load-quote').addEventListener("click", printColor, false); // click event listener for the showcasing different background color.
