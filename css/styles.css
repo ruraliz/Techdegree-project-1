@@ -112,7 +112,11 @@ h1 {
 
 .year:before {
   content: ", ";
-  font-style: normal;
+  font-style:italic;
+}
+.tags:before{
+  content: ", ";
+  font-style:normal;
 }
 
 @media (min-width: 768px) {
