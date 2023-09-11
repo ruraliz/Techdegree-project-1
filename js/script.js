@@ -10,7 +10,7 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-const quotes = [
+const quotes = [   //created a variable named quotes with an array of objects containing quotes, source, citation and year
   {
     quote:"For me, I'm a dancer first. I could be the President of the United States, and I will always be a dancer, first and foremost.", 
     source:'Anne Fletcher', 
@@ -58,7 +58,7 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote(arr) {
+function getRandomQuote(arr) {  //a function called getRandomQuote that stores and return the quotes in the array in random order 
   const randomNumber = Math.floor( Math.random() * quotes.length )  ;
   for ( let i = 0; i< arr.length; i++){
     let randomQuote= arr[randomNumber];
@@ -69,16 +69,16 @@ function getRandomQuote(arr) {
 /***
  * `printQuote` function
 ***/
-const randomValue = () => Math.floor(Math.random() * 256);
-function randomColor(value) {
-  const color= `rgb( ${value()}, ${value()}, ${value()} )`;
-  return color;
+const randomValue = () => Math.floor(Math.random() * 256);  // arrow function that will be used in randomColor function to generator random colors in rgb
+function randomColor(value) { 
+  const color= `rgb( ${value()}, ${value()}, ${value()} )`; //sets variable called color to hold value for range of random colors in rgb
+  return color; //returns the color variable
 }
-for (let i= 1; i<= 7; i++) {
-  document.body.style.background= randomColor(randomValue)
-  }
+for (let i= 1; i<=7; i++) { // for loop to go through the randomColors with 7 which is the length of the quotes array 
+  document.body.style.background= randomColor(randomValue) // sets the background color to the random colors generator by the randomColor function 
+}
 
-function printQuote(){
+function printQuote(){ // function to print the quotes on the web page
   const randomQuotes= getRandomQuote(quotes);
   let html = `<p class = "quote">` + randomQuotes.quote + '</p>'
   + `<p class = "source">` + randomQuotes.source 
@@ -88,20 +88,12 @@ function printQuote(){
   if ( randomQuotes.year !== null) {
     html += `<span class= "year">` + randomQuotes.year + `</span>`
   }
-  // let html = `<p class="quote"> ${randomQuotes.quote}</p>`
-  // `<p class="source">${randomQuotes.source}</p>`
-  // if(randomQuotes.citation !== null){
-  // html+= `<span class="citation"> ${randomQuotes.citation}</span>`
-  // };
-  // if(!randomQuotes.year !== null){
-  // html+= `<span class="year"> ${randomQuotes.year} </span>`
-  // };
-  document.getElementById('quote-box').innerHTML = html;
+  document.getElementById('quote-box').innerHTML = html; // pulls format from index.html page and prints the quotes on the web page.
 }
-setInterval(printQuote, 20000)
+setInterval(printQuote, 10000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false); // provides a listening event to click through the quotes to showcase the next random quote on the page. 

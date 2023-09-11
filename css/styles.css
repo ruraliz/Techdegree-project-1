@@ -111,11 +111,9 @@ h1 {
 }
 
 .year:before {
-  content: ", ";
   font-style:italic;
 }
 .tags:before{
-  content: ", ";
   font-style:normal;
 }
 
