@@ -70,14 +70,16 @@ function getRandomQuote(arr) {  //a function called getRandomQuote that stores a
  * `printQuote` function
 ***/
 const randomValue = () => Math.floor(Math.random() * 256);  // arrow function that will be used in randomColor function to generator random colors in rgb
-function randomColor(value) { 
-  const color= `rgb( ${value()}, ${value()}, ${value()} )`; //sets variable called color to hold value for range of random colors in rgb
+function randomColor() { 
+  const color= `rgb( ${randomValue()}, ${randomValue()}, ${randomValue()} )`; //sets variable called color to hold value for range of random colors in rgb
   return color; //returns the color variable
 }
 for (let i= 1; i<=7; i++) { // for loop to go through the randomColors with 7 which is the length of the quotes array 
-  document.body.style.background= randomColor(randomValue) // sets the background color to the random colors generator by the randomColor function 
+  function printColor (){
+    document.body.style.background= randomColor()
+  } // sets the background color to the random colors generator by the randomColor function with a interval timer 
+  setInterval(printColor, 5000)
 }
-
 function printQuote(){ // function to print the quotes on the web page
   const randomQuotes= getRandomQuote(quotes);
   let html = `<p class = "quote">` + randomQuotes.quote + '</p>'
@@ -90,10 +92,10 @@ function printQuote(){ // function to print the quotes on the web page
   }
   document.getElementById('quote-box').innerHTML = html; // pulls format from index.html page and prints the quotes on the web page.
 }
-setInterval(printQuote, 10000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
+setInterval(printQuote, 5000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false); // provides a listening event to click through the quotes to showcase the next random quote on the page. 
+document.getElementById('load-quote').addEventListener("click", printColor, false)
