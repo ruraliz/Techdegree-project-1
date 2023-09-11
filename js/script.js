@@ -25,7 +25,7 @@ const quotes = [   //created a variable named quotes with an array of objects co
     source:'ANNA Maiche', 
     citation:'Tiny Pretty Things', 
     year:'2020',
-    tags: 'drama'
+    tags: 'Drama'
   },
   {
     quote:"I used to know a whole lot of dances. The-the-the-eh- the flea hop, and-and, what's the - eh - the black bottom, the variety drag. I don't, I don't know, I just don't seem to have any time any more. I have so many things to do.", 
@@ -64,7 +64,7 @@ for (let i= 1; i<=7; i++) { // for loop to go through the randomColors with 7 wh
   function printColor (){
     document.body.style.background= randomColor()
   } // sets the background color to the random colors generator by the randomColor function with a interval timer 
-  setInterval(printColor, 5000)
+  setInterval(printColor, 7000)
 }
 function printQuote(){ // function to print the quotes on the web page
   const randomQuotes= getRandomQuote(quotes);
@@ -81,7 +81,7 @@ function printQuote(){ // function to print the quotes on the web page
   } 
   document.getElementById('quote-box').innerHTML = html; // pulls format from index.html page and prints the quotes on the web page.
 }
-setInterval(printQuote, 5000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
+setInterval(printQuote, 7000) // sets interval for the quotes printing on the page, do not have to click through the quotes .
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false); // click event listener for the printing through quotes. 
 document.getElementById('load-quote').addEventListener("click", printColor, false); // click event listener for the showcasing different background color.
